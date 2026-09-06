@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+dist/
+*.zip
+.env
+.env.*
+
+# Vite/React/AI-Studio scaffolding not needed to run the game (static HTML/JS/CSS only)
+package.json
+package-lock.json
+vite.config.ts
+metadata.json

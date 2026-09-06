@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="nibGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="45%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="inkDropGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Graph paper notebook page rounded tile -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bgGrad)" stroke="#cbd5e1" stroke-width="2"/>
+
+  <!-- Graph paper light blue grid lines -->
+  <path d="M16 2v60 M32 2v60 M48 2v60 M2 16h60 M2 32h60 M2 48h60" stroke="#bae6fd" stroke-width="1.2" opacity="0.85"/>
+
+  <!-- Doodle scribble arcs on the paper -->
+  <!-- Blue player doodle line -->
+  <path d="M10 44 C 15 40, 19 50, 25 47" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linecap="round"/>
+  <!-- Red enemy doodle line -->
+  <path d="M39 47 C 45 51, 49 41, 54 44" fill="none" stroke="#ef4444" stroke-width="2.6" stroke-linecap="round"/>
+
+  <!-- Pen Nib Base / Grip -->
+  <g filter="url(#subtleShadow)">
+    <path d="M25 8 L39 8 L37 15 L27 15 Z" fill="#1e293b"/>
+    <rect x="26" y="14" width="12" height="2" fill="#475569"/>
+
+    <!-- Fountain Pen Nib Blade -->
+    <path d="M27 16 L37 16 L43 26 C43 31 38 37 32 45 C26 37 21 31 21 26 Z" fill="url(#nibGrad)" stroke="#0f172a" stroke-width="2" stroke-linejoin="round"/>
+
+    <!-- Engraved nib wings -->
+    <path d="M24 25 C28 28 36 28 40 25" fill="none" stroke="#94a3b8" stroke-width="1.2" stroke-linecap="round"/>
+
+    <!-- Nib Breather Hole & Central Ink Slit -->
+    <circle cx="32" cy="29" r="2.4" fill="#0f172a"/>
+    <line x1="32" y1="31.4" x2="32" y2="45" stroke="#0f172a" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+
+  <!-- Glowing Blue Ink Droplet at the nib tip -->
+  <path d="M32 48 C32 48 27.5 53 27.5 55.5 C27.5 58 29.5 60 32 60 C34.5 60 36.5 58 36.5 55.5 C36.5 53 32 48 32 48 Z" fill="url(#inkDropGrad)" stroke="#1e40af" stroke-width="1.2"/>
+  <!-- Specular gleam on ink drop -->
+  <circle cx="30.5" cy="54.5" r="1.1" fill="#ffffff" opacity="0.9"/>
+</svg>

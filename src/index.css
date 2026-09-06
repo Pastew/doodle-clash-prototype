@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Notebook Squared Graph Paper Dynamic CSS Background Pattern */
+.graph-paper-bg {
+  background-color: #faf7ee;
+  background-image: 
+    linear-gradient(to right, rgba(148, 175, 205, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 175, 205, 0.35) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
