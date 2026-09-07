@@ -5,10 +5,12 @@
 # Usage:
 #   ./scripts/package.sh [output-name]
 #
-# Produces dist/<output-name>.zip (default name: doodle-clash) containing
-# only the files needed to run the game, with index.html sitting at the
-# zip's top level (not nested inside a folder). Validates the submission
-# rules after packaging:
+# Produces dist/<output-name>.zip (default name:
+# doodle-clash-prototype-yyyy-mm-dd-hh-mm, e.g.
+# doodle-clash-prototype-2026-09-07-14-32) containing only the files
+# needed to run the game, with index.html sitting at the zip's top level
+# (not nested inside a folder). Validates the submission rules after
+# packaging:
 #   - single .zip file, no larger than 35MB
 #   - index.html at the top level of the zip
 #
@@ -20,7 +22,8 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
 
-OUTPUT_NAME="${1:-doodle-clash}"
+DEFAULT_NAME="doodle-clash-prototype-$(date +%Y-%m-%d-%H-%M)"
+OUTPUT_NAME="${1:-$DEFAULT_NAME}"
 DIST_DIR="$REPO_ROOT/dist"
 ZIP_PATH="$DIST_DIR/${OUTPUT_NAME}.zip"
 MAX_BYTES=$((35 * 1024 * 1024))
@@ -66,7 +69,11 @@ else
 fi
 
 # 2. index.html must be at the top level (not inside a folder)
-if unzip -Z1 "$ZIP_PATH" | grep -qx "index.html"; then
+# (listing is captured first, not piped directly into grep -q, since grep -q
+# closes the pipe as soon as it matches -- with pipefail that makes unzip's
+# resulting SIGPIPE look like a failure even when the match succeeded)
+ZIP_LISTING="$(unzip -Z1 "$ZIP_PATH")"
+if grep -qx "index.html" <<< "$ZIP_LISTING"; then
   echo "OK:   index.html is at the top level of the zip."
 else
   echo "FAIL: index.html is not at the top level of the zip."
