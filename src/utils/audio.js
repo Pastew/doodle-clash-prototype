@@ -263,6 +263,29 @@ class SoundFX {
     } catch {}
   }
 
+  // Descending sawtooth run for match defeat — mirrors playVictory's ascending
+  // fanfare but slower, lower-pitched, and minor-flavored for a somber tone.
+  playDefeat() {
+    try {
+      const ctx = this.getContext();
+      if (!ctx) return;
+      const notes = [392.0, 349.23, 293.66, 220.0];
+      notes.forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.value = freq;
+        const start = ctx.currentTime + i * 0.16;
+        gain.gain.setValueAtTime(0.14, start);
+        gain.gain.exponentialRampToValueAtTime(0.001, start + 0.4);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(start);
+        osc.stop(start + 0.4);
+      });
+    } catch {}
+  }
+
   // Urgent defensive alarm thud when player's base takes damage
   playOurBaseDamage() {
     try {

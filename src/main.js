@@ -578,7 +578,7 @@ class DoodleClashApp {
       this.showGameOverModal('victory', 'Victory', 'Enemy base destroyed');
     } else if (this.combatManager.blueCore.hp <= 0) {
       this.winner = 'red';
-      soundFX.playSplat();
+      soundFX.playDefeat();
       this.showGameOverModal('defeat', 'Defeat', 'Your base was destroyed');
     } else if (this.deckManager.matchTimeRemaining <= 0) {
       if (this.combatManager.redCore.hp < this.combatManager.blueCore.hp) {
@@ -588,7 +588,7 @@ class DoodleClashApp {
         this.showGameOverModal('victory', 'Victory', 'Higher base HP');
       } else if (this.combatManager.blueCore.hp < this.combatManager.redCore.hp) {
         this.winner = 'red';
-        soundFX.playSplat();
+        soundFX.playDefeat();
         this.showGameOverModal('defeat', 'Defeat', 'Lower base HP');
       } else {
         this.winner = 'tie';
