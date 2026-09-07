@@ -2,6 +2,8 @@
 
 A real-time hand-drawn strategy game on squared math notebook paper where players draw ink paths to deploy doodle warriors and assault the enemy fortress.
 
+![Doodle Clash promo banner](docs/screenshots/promo-banner.jpeg)
+
 ---
 
 ## 🎮 How to Play
@@ -15,14 +17,20 @@ A real-time hand-drawn strategy game on squared math notebook paper where player
 
 | Unit | Cost | Role | HP | Damage | Speed | Attack Range | Detect Range | Attack Speed |
 |---|---|---|---|---|---|---|---|---|
-| Speeder / Dash | 1 | Assassin | 2 | 2 | 5.0 | 1.2 | 3.2 | 0.6 |
+| Speeder | 1 | Assassin | 2 | 2 | 5.0 | 1.2 | 3.2 | 0.6 |
 | Scribblers | 2 | Swarm (4 units) | 1 each | 1 | 2.6 | 1.1 | 2.8 | 0.6 |
 | Splat | 3 | AoE Blaster | 5 | 3 | 1.0 | 3.6 | 3.6 | 1.5 |
 | Wall | 4 | Battering Ram | 30 | 1 | 0.7 | 1.2 | 3.0 | 1.5 |
-| Ranger / Longshot | 4 | Sniper | 3 | 5 | 1.1 | 5.6 | 5.6 | 1.8 |
+| Ranger | 4 | Sniper | 3 | 5 | 1.1 | 5.6 | 5.6 | 1.8 |
 | Bulker | 5 | Tank | 16 | 5 | 1.035 | 1.4 | 3.5 | 1.3 |
 
 *Speed is grid cells/second; Attack Speed is the interval in seconds between attacks (lower = faster). Splat also deals AoE splash damage in a 2.0-cell radius.*
+
+### Screenshots
+
+| In-Match Battle | Game Rules & Units |
+|---|---|
+| ![Gameplay screenshot showing a live match](docs/screenshots/gameplay-battle.png) | ![Game rules and unit roster modal](docs/screenshots/rules-modal.jpg) |
 
 ---
 
@@ -56,7 +64,7 @@ Then navigate to `http://localhost:8000` in any web browser.
     ├── systems/
     │   ├── bot.js          # Heuristic AI opponent (strategic lane drawing)
     │   ├── combat.js       # Unit physics, collisions, combat & projectiles
-    │   ├── deck.js         # 8-card cycle deck & ink economy engine
+    │   ├── deck.js         # 6-card cycle deck & ink economy engine
     │   ├── input.js        # Pointer/touch gesture path drawing manager
     │   ├── renderer.js     # HTML5 Canvas notebook renderer & animations
     │   └── unitDrawers.js  # Shared unit/card-icon drawing functions
