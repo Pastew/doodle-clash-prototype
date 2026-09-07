@@ -50,10 +50,8 @@ export class DeckAndEconomyManager {
     this.matchTimeRemaining = 180;
     this.nextBottleSpawnTimer = 6.0;
 
-    // Start with 3 fair bottles: outer Red flank, outer Blue flank, and strictly ONE at center midline
+    // Start with just one bottle, at the exact center midline
     this.bottles = [
-      createRandomBottle('bottle_start_red', 2, 11),
-      createRandomBottle('bottle_start_blue', 15, 21),
       createRandomBottle('bottle_start_mid', 9, 16),
     ];
   }
