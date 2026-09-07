@@ -675,3 +675,13 @@ This build log tracks the design, architectural, and prompting sessions for Dood
   - *Tuning Pass:* The baseline/penalty split was iterated down twice per feedback ("too lazy") — from an initial 0.5-2.0s range, to 0.3-1.3s, to the current 0.2-1.0s range (`0.2 + random(0-0.2) + up to 0.6 penalty`).
   - *`BASE_INK_REGEN_RATE` Constant:* Ink regen rate changed from `0.5/1.0/1.5` (1x/2x/3x phases) to `0.4/0.8/1.2`, and the previously-duplicated `0.4` literal (in `deck.js`, `bot.js`, and two HUD rate-display strings in `main.js`) was extracted into a single `BASE_INK_REGEN_RATE` constant in `constants.js`.
 - **Final Status:** Verified via `node --check`.
+
+---
+
+### Session 54: Bot Reaction Speed Increase & README Accuracy Pass
+- **Tool:** Claude Code
+- **What We Built:** A further bot reaction-speed tuning pass, plus a full rewrite of `README.md` to match the game's actual current state.
+- **Key Decisions & Features:**
+  - *Bot Reaction Delay:* Tightened again from the 0.2-1.0s range down to `0.15 + random(0-0.15) + up to 0.5 penalty`, i.e. a new 0.15-0.8s range — roughly 20-25% faster across the board while keeping the same ink-hoarding-based difficulty scaling from Session 53.
+  - *README Rewrite:* The unit roster section was stale (every single card's ink cost was wrong, Scribblers was documented as 3 units instead of 4, ink bottle rewards were described as a flat `+2` instead of randomized `+1/+2/+3`, and the drawing baseline referenced an outdated `y ≥ 24` grid value). Replaced the bullet list with a stats table (sorted by cost, pulled directly from `constants.js`), corrected the bottle/drawing descriptions, filled in the missing `unitDrawers.js`/`haptics.js` entries in the project structure tree, and removed the entire "AI Studio Dev Container" cleanup section since those files (`package.json`, `vite.config.ts`, `metadata.json`) were already stripped from git tracking and gitignored.
+- **Final Status:** Verified via `node --check`; README cross-checked line-by-line against `constants.js`.

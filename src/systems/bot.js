@@ -101,13 +101,13 @@ export class BotOpponentAI {
     if (canAffordPlanned) {
       // If we don't have a jitter timer yet, start realistic human reaction/drawing delay
       if (this.jitterTimer === null) {
-        // Human reaction jitter: 200ms to 400ms baseline, eased off further when the
+        // Human reaction jitter: 150ms to 300ms baseline, eased off further when the
         // player is banking a lot of unspent ink — a simple, cheap proxy for "playing
         // less efficiently" that lets difficulty implicitly track player skill without
-        // any persistent skill-tracking state. Max total delay: 1s (0.4s baseline + 0.6s penalty).
+        // any persistent skill-tracking state. Max total delay: 0.8s (0.3s baseline + 0.5s penalty).
         const inkBankRatio = Math.min(1, (playerInk || 0) / 10); // 10 = player's max ink pool
-        const skillPenalty = inkBankRatio * 0.6; // up to +0.6s extra delay when hoarding ink
-        this.jitterTimer = 0.2 + Math.random() * 0.2 + skillPenalty;
+        const skillPenalty = inkBankRatio * 0.5; // up to +0.5s extra delay when hoarding ink
+        this.jitterTimer = 0.15 + Math.random() * 0.15 + skillPenalty;
       } else {
         this.jitterTimer -= dt;
         if (this.jitterTimer <= 0) {
