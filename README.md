@@ -1,5 +1,7 @@
 # ✏️ Doodle Clash
 
+**PLAY IT HERE:** [https://pastew.com/doodle-clash-prototype/index.html](https://pastew.com/doodle-clash-prototype/index.html)
+
 A real-time hand-drawn strategy game on squared math notebook paper where players draw ink paths to deploy doodle warriors and assault the enemy fortress.
 
 ![Doodle Clash promo banner](docs/screenshots/promo-banner.jpeg)
